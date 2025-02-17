@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Financial Planning</title>
+<link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <div id="financial" class="tab-content">
+    <h1>Financial<span>Management</span></h1>
+
+    <p>Calculate your Simple Interest:</p>
+    <input type="number" class="input" id="principal" placeholder="Principal Amount">
+    <input type="number"  class="input" id="rate" placeholder="Interest Rate (e.g., 5 for 5%)">
+    <input type="number"  class="input" id="time" placeholder="Time (in years)">
+    <button onclick="calculateSimpleInterest()" class="btn">Calculate</button>
+    <p id="simpleInterestResult"></p>
+
+    <p>Calculate your Compound Interest:</p>
+    <input type="number"  class="input" id="principalC" placeholder="Principal Amount">
+    <input type="number"  class="input" id="rateC" placeholder="Interest Rate (e.g., 5 for 5%)">
+    <input type="number"  class="input" id="timeC" placeholder="Time (in years)">
+    <input type="number"  class="input" id="n" placeholder="Times compounded per year">
+    <button onclick="calculateCompoundInterest()" class="btn">Calculate</button>
+
+    <script>
+      function openTab(tabName) {
+          // Hide all tabs
+          document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+
+          // Show selected tab
+          document.getElementById(tabName).style.display = 'block';
+
+          // Update active state in sidebar
+          document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+          document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
+      }
+
+      function calculateSimpleInterest() {
+          let principal = parseFloat(document.getElementById('principal').value);
+          let rate = parseFloat(document.getElementById('rate').value) / 100;
+          let time = parseFloat(document.getElementById('time').value);
+          let interest = principal * rate * time;
+          document.getElementById('simpleInterestResult').innerText = "Simple Interest: ₹" + interest.toFixed(2);
+      }
+
+      function calculateCompoundInterest() {
+          let principal = parseFloat(document.getElementById('principalC').value);
+          let rate = parseFloat(document.getElementById('rateC').value) / 100;
+          let time = parseFloat(document.getElementById('timeC').value);
+          let n = parseFloat(document.getElementById('n').value);
+          let amount = principal * Math.pow((1 + rate / n), (n * time));
+          let interest = amount - principal;
+          document.getElementById('compoundInterestResult').innerText = "Compound Interest: ₹" + interest.toFixed(2);
+      }
+  </script>
+    <p id="compoundInterestResult"></p>
+</div>
+</body>
+</html>

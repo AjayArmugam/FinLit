@@ -1,0 +1,80 @@
+/* style.css */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6; /* Improved readability */
+    background-color: #081b29; /* Light gray background */
+    color: #343a40; /* Dark gray text color */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+h1{
+    font-size: 50px;
+    color: white;
+    animation: slideDown 1s ease forwards;
+}
+span{
+    color: #0ef;
+}
+
+section {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #dee2e6; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #fff; /* White background for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+    text-align: center;
+    color: #212529; /* Dark heading color */
+}
+
+ul {
+    list-style-type: disc;
+    text-align: center;
+}
+li {
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for table header */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto; /* Enable horizontal scrolling for tables on smaller screens */
+    }
+}
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(50);
+    }
+}

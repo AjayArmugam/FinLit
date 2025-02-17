@@ -1,0 +1,127 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #081b29;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 100px;
+}
+
+/* Heading Styles */
+ h1{
+    font-size: 100px;
+    color: white;
+    animation: slideDown 1s ease forwards;
+}
+ .container span{
+    color: #0ef;
+    animation: slideDown 1s ease forwards;
+}
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.container p {
+    font-size: 56px;
+    font-weight: 700;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Button Styling */
+.btn-box {
+    display: inline-block;
+    padding: 12px 28px;
+    background: rgb(2, 255, 154);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #081b29;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 10px;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px rgb(6, 221, 153), 0 0 25px #0ef;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.btn-box:hover {
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan,
+        0 0 100px cyan, 0 0 200px cyan;
+}
+.chat-container {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center;     /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 200px;          /* Or whatever height you want for the container */
+    padding: 20px;           /* Add some padding around the content */
+  }
+  
+  #user-input {
+    width: 50%; /* Adjust as needed */
+    padding: 10px;
+    margin-bottom: 10px; /* Space between textarea and button */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Adjust font size */
+    resize: none; /* Prevent resizing of the textarea */
+  }
+  
+  #send-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #send-button:hover {
+    background-color: #45A049; /* Darker green on hover */
+
+  }
+/* Animation */
+@keyframes slideTop {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Animation */
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(50);
+    }
+}

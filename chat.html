@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Chatbot</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+
+    <div class="chat-container">
+        <h1>Finance Assistant Chatbot</h1>
+        <div id="chatbox">
+            <div class="message bot fade-in"><strong>Bot:</strong> Hey! How can I assist you today in finance?</div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Ask me anything about finance..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("userInput").focus(); // Auto-focus on input field
+
+        async function sendMessage() {
+            const userInput = document.getElementById("userInput").value.trim();
+            const chatBox = document.getElementById("chatbox");
+
+            if (!userInput) return;
+
+            // Append user message with animation
+            chatBox.innerHTML += `<div class="message user fade-in"><strong>You:</strong> ${userInput}</div>`;
+            document.getElementById("userInput").value = "";
+
+            // Show typing animation
+            const typingIndicator = document.createElement("div");
+            typingIndicator.className = "message bot typing fade-in";
+            typingIndicator.innerHTML = "<span>Bot is typing...</span>";
+            chatBox.appendChild(typingIndicator);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const response = await fetch("http://localhost:3000/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: userInput })
+                });
+
+                const data = await response.json();
+                chatBox.removeChild(typingIndicator); // Remove typing animation
+
+                if (data.result) {
+                    chatBox.innerHTML += `<div class="message bot fade-in"><strong>Bot:</strong> ${data.result}</div>`;
+                } else {
+                    chatBox.innerHTML += `<div class="message bot fade-in error"><strong>Error:</strong> Unexpected response from the server.</div>`;
+                }
+            } catch (error) {
+                chatBox.removeChild(typingIndicator);
+                chatBox.innerHTML += `<div class="message bot fade-in error"><strong>Error:</strong> Failed to connect to the server.</div>`;
+            }
+
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to latest message
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+    </script>
+
+</body>
+</html>

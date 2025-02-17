@@ -1,0 +1,57 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6; /* Improved readability */
+    background-color: #081b29; /* Light gray background */
+    color: #343a40; /* Dark gray text color */
+  
+  }
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    animation: slideDown 1s ease forwards;
+  }
+  span{
+    text-align: center;
+    color: #0ef;
+  }
+  p {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="number"] {
+    width: 150px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  #result50, #result75, #result20 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .input{
+    border: 1px solid black;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: rgb(206, 224, 224);
+    margin-left: 10%;
+  
+  }
+  .btn{
+    border: 1px solid black;
+    height: 35px;
+    width: 100px;
+    margin-top: 0%;
+    margin-left: 35px;
+    border-radius: 10px;
+  }
